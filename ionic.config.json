@@ -1,0 +1,7 @@
+{
+  "name": "covidnow",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
