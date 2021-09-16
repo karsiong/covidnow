@@ -1,17 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Malaysia New Case
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+  <ion-card-header>
+    <ion-card-subtitle >Update on {{totalcase[0]}} 11:59pm</ion-card-subtitle>
+    <ion-card-title>Covid Case</ion-card-title>
+  </ion-card-header>
+    <ion-card-content>
+        <ion-item  color="warning">
+          <ion-icon name="person-add-sharp" size="large" slot="start"></ion-icon>
+          <ion-label>New Case</ion-label>
+          <ion-label>{{ttodayactive}}</ion-label>
+        </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+        <ion-item  color="success">
+          <ion-icon name="happy-sharp" size="large" slot="start"></ion-icon>
+          <ion-label>Recovery</ion-label>
+          <ion-label>{{totalcase[3]}}</ion-label>
+        </ion-item>
+
+        <ion-item  color="danger">
+          <ion-icon name="skull-sharp" size="large" slot="start"></ion-icon>
+          <ion-label>Death</ion-label>
+          <ion-label>{{deadcase[1]}}</ion-label>
+        </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Update on {{testcon[0]}}</ion-card-subtitle>
+      <ion-card-title>Test Conducted</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item  color="primary">
+        <ion-icon name="flask-sharp" size="large" slot="start"></ion-icon>
+        <ion-label>Tested</ion-label>
+        <ion-label>{{ttestcon}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>

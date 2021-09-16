@@ -1,17 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      State Case
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-label>
+    <h2>Update on {{s_update}} 11:59pm</h2>
+  </ion-label>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list *ngFor="let state of eachstate; let i=index;">
+    <ion-item>
+      <ion-thumbnail slot="start">
+          <img src="../../assets/stateflag/{{state[1]}}.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{state[1]}}</h2>
+        <h3>+ {{state[3]}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
