@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.kstoybox.covidnow;
 
 import com.getcapacitor.BridgeActivity;
 
