@@ -17,7 +17,6 @@ export class Tab2Page {
     gdata.get_statecase().then(data=>{
       this.eachstate=this.gdata.conv_statecase(data);
       this.s_update=this.eachstate[0][0];
-      console.log(this.eachstate)
     });
   }
 

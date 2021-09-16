@@ -34,8 +34,6 @@ export class DatagetService {
     eachline.push(
       ["","Import case","",importcase.toString()]
     );
-    console.log(importcase);
-
     return eachline;
   }
 
