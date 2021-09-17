@@ -10,22 +10,31 @@ export class Tab1Page {
   deadcase:String[]=[];
   testcon:String[]=[];
   ttestcon:number=0;
-  ttodayactive:number=0;
 
   constructor(
     public gdata:DatagetService
   ) {
-    gdata.get_totalcase().then(data=>{
-      this.totalcase=gdata.conv_latestdata(data);
-      this.ttodayactive=Number(this.totalcase[1])+Number(this.totalcase[2]);
+    this.data_loading();
+  }
+
+  data_loading(){
+    this.gdata.get_totalcase().then(data=>{
+      this.totalcase=this.gdata.conv_latestdata(data);
     });
-    gdata.get_deadcase().then(data=>{
-      this.deadcase=gdata.conv_latestdata(data);
+    this.gdata.get_deadcase().then(data=>{
+      this.deadcase=this.gdata.conv_latestdata(data);
     });
-    gdata.get_testcon().then(data=>{
-      this.testcon=gdata.conv_latestdata(data);
+    this.gdata.get_testcon().then(data=>{
+      this.testcon=this.gdata.conv_latestdata(data);
       this.ttestcon=Number(this.testcon[1])+Number(this.testcon[2]);
     });
+  }
+
+  doRefresh(event) {
+    this.data_loading();
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
   }
 
 }

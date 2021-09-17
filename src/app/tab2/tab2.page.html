@@ -7,12 +7,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>
-    <h2>Update on {{s_update}} 11:59pm</h2>
-  </ion-label>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <ion-list *ngFor="let state of eachstate; let i=index;">
-    <ion-item>
+  <ion-segment color="danger" value=1 (ionChange)="segmentChanged($event)">
+    <ion-segment-button layout="icon-start" value=1>
+      <ion-icon name="person-add-sharp"></ion-icon>
+      <ion-label>Cases</ion-label>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" value=2>
+      <ion-icon name="skull-sharp"></ion-icon>
+      <ion-label>Deaths</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-list *ngIf=segment_change>
+    <ion-label>
+      <h2>Update on {{s_update}} 11:59pm</h2>
+    </ion-label>
+    <ion-item *ngFor="let state of eachstate; let i=index;">
       <ion-thumbnail slot="start">
           <img src="../../assets/stateflag/{{state[1]}}.jpg">
       </ion-thumbnail>
@@ -22,4 +36,20 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-list *ngIf="!segment_change">
+    <ion-label>
+      <h2>Update on {{sdead_update}} 11:59pm</h2>
+    </ion-label>
+    <ion-item *ngFor="let dstate of each_deadstate; let i=index;">
+      <ion-thumbnail slot="start">
+          <img src="../../assets/stateflag/{{dstate[1]}}.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{dstate[1]}}</h2>
+        <h3>+ {{dstate[2]}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

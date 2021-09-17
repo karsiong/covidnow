@@ -1,22 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-thumbnail slot="start">
+        <img src="../../assets/moh.png">
+    </ion-thumbnail>
     <ion-title>
-      Malaysia New Case
+      COVIDNOW
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-card>
   <ion-card-header>
     <ion-card-subtitle >Update on {{totalcase[0]}} 11:59pm</ion-card-subtitle>
-    <ion-card-title>Covid Case</ion-card-title>
+    <ion-card-title>Latest Covid Case</ion-card-title>
   </ion-card-header>
     <ion-card-content>
         <ion-item  color="warning">
           <ion-icon name="person-add-sharp" size="large" slot="start"></ion-icon>
           <ion-label>New Case</ion-label>
-          <ion-label>{{ttodayactive}}</ion-label>
+          <ion-label>{{totalcase[1]}}</ion-label>
         </ion-item>
 
         <ion-item  color="success">

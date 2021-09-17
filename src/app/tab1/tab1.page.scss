@@ -1,3 +1,12 @@
 ion-content{
   --background:#EDEDED;
 }
+
+ion-thumbnail{
+  padding-left: 10px;
+  height:auto;
+  img{
+    width:auto !important;
+    height:auto !important;
+  }
+}

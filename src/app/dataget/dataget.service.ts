@@ -37,6 +37,18 @@ export class DatagetService {
     return eachline;
   }
 
+  conv_dead_statecase(data:String){
+    let list = data.split("\n").reverse();
+    let last16line:any[]=[];
+    let eachline:any[][]=[];
+
+    for (let i = 0; i < 16; i++) {
+      last16line[i] = list[i+1];
+      eachline[i]=last16line[i].split(",");
+    }
+    return eachline;
+  }
+
 //get total case
   get_totalcase():Promise<String>{
     let url = this.socket+'cases_malaysia.csv';
@@ -53,6 +65,16 @@ export class DatagetService {
 
   get_deadcase():Promise<String>{
     let url = this.socket+'deaths_malaysia.csv';
+    let result:String[]=[];
+
+    return this.http.get(url,{responseType:'text'})
+    .toPromise()
+    .then(rawdata=> rawdata as String
+    )
+  }
+
+  get_dead_statecase():Promise<String>{
+    let url = this.socket+'deaths_state.csv';
     let result:String[]=[];
 
     return this.http.get(url,{responseType:'text'})
