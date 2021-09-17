@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { DatagetService } from '../dataget/dataget.service'
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(
+    public gdata:DatagetService
+  ) {}
 
 }

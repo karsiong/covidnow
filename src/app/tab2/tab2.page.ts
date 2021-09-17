@@ -36,7 +36,7 @@ export class Tab2Page {
     this.data_loading();
     setTimeout(() => {
       event.target.complete();
-    }, 2000);
+    }, 1000);
   }
 
   segmentChanged(ev: any) {
