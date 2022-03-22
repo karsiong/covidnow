@@ -80,10 +80,12 @@ export class DatagetService {
     for (let i = 0; i < 16; i++) {
       last16line[i] = list[i+1];
       eachline[i]=last16line[i].split(",");
-      importcase += Number(eachline[i][2]);
+
+      importcase += Number(eachline[i][3]);
+
     }
     eachline.push(
-      ["","Import case","",importcase.toString()]
+      ["","Import case",importcase.toString()]
     );
     return eachline;
   }
@@ -201,7 +203,7 @@ export class DatagetService {
         this.lang_up="更新于";
         this.lang_t1="最新新冠病例";
         this.lang_t2="新冠病毒檢測";
-        this.lang_t3="死予新冠病";
+        this.lang_t3="死于新冠病";
         this.lang_c1="新增病例";
         this.lang_c2="恢復";
         this.lang_c3="死亡";
